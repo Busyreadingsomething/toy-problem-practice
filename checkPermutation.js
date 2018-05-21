@@ -2,7 +2,7 @@ const checkPermutation = (str1, str2) => {
   if (str1.length !== str2.length) {
     return false;
   }
-  debugger;
+
   const holder1 = {};
 
   for (const char of str1) {
