@@ -1,6 +1,10 @@
 const stringCompression = (string) => {
   const holder = [];
 
+  if (string === '') {
+    return string;
+  }
+
   for (let i = 0; i < string.length; i += 1) {
     if (i === 0) {
       holder.push([string[i], 1]);
@@ -14,5 +18,5 @@ const stringCompression = (string) => {
 
   return holder.map(tuple => tuple.join('')).join('');
 };
-
+console.log(stringCompression(''));
 console.log(stringCompression('aaabbcccccddefff'));
