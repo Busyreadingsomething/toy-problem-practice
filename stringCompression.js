@@ -1,6 +1,5 @@
 const stringCompression = (string) => {
   const holder = [];
-  let index = 0;
 
   for (let i = 0; i < string.length; i += 1) {
     if (i === 0) {
@@ -12,9 +11,7 @@ const stringCompression = (string) => {
       holder.push([string[i], 1]);
     }
   }
-  for (const [ index ] of string) {
-    console.log(index);
-  }
+
   return holder.map(tuple => tuple.join('')).join('');
 };
 
