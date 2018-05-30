@@ -19,12 +19,12 @@ const bFS = (start, goal) => {
   const marked = {};
   let current = [start];
 
-  for (let i = 0; i < current.length; i += 1) {
-    marked[current[i].val] = true;
-    if (current[i] === goal) {
+  for (const curr of current) {
+    marked[curr.val] = true;
+    if (curr === goal) {
       return true;
     }
-    for (const edge of current[i].edges) {
+    for (const edge of curr.edges) {
       if (!marked[edge.val]) {
         current.push(edge);
       }
@@ -36,7 +36,7 @@ const bFS = (start, goal) => {
 
 const hasRouteBetween = (node1, node2) => {
   let route = false;
-  debugger;
+
   if (bFS(node1, node2) || bFS(node2, node1)) {
     route = true;
   }
