@@ -14,6 +14,7 @@ var productExceptSelf = function(nums) {
 // EXCEEDED TIME LIMIT
 */
 
+/*
 var productExceptSelf = function(nums) {
   const result = Array(nums.length).fill(1);
   let leftProd = 1;
@@ -31,4 +32,24 @@ var productExceptSelf = function(nums) {
   return result;
 };
 
-// REACHED: 20%
+// REACHED: 20% - 152 ms
+*/
+
+var productExceptSelf = function(nums) {
+  const result = new Array();
+  let prod = 1;
+  for (let i = 0; i < nums.length; i += 1) {
+    result.push(prod)
+    prod *= nums[i];
+  }
+  
+  prod = 1
+  for (let i = nums.length - 1; i >= 0; i -= 1) {
+    result[i] *= prod;
+    prod *= nums[i];
+  }
+
+  return result;
+};
+
+// REACH: 100% - 82 ms
