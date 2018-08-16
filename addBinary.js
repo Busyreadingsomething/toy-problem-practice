@@ -1,10 +1,9 @@
 var addBinary = function(a, b) {
-  debugger;
+  const len = a.length > b.length ? a.length : b.length;
+  const result = [];
   let carry = 0;
   a = a.split('').reverse();
   b = b.split('').reverse();
-  const len = a.length > b.length ? a.length : b.length;
-  const result = [];
 
   for (let i = 0; i < len; i += 1) {
     const valA = a[i] ? parseInt(a[i]) : 0;
