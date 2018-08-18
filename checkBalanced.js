@@ -71,3 +71,22 @@ addToBST(testUnbalanced, bstUnbalanced);
 console.log('PERFECT BALANCED:', checkBalanced(bstPerfect) === true);
 console.log('IMPERFECT BALANCED:', checkBalanced(bstImperfect) === true);
 console.log('UNBALANCED:', checkBalanced(bstUnbalanced) === false);
+
+// Implemented O(n) Time and O(n) Space solution
+
+var isBalanced = function(root) {
+  let balance = true;
+  
+  const checkDepth = (node = root) => {
+    if (node === null) return 0;
+    const leftLevel = checkDepth(node.left);
+    const rightLevel = checkDepth(node.right);
+    if (Math.abs(leftLevel - rightLevel) > 1) {
+      balance = false;
+    }
+    return 1 + Math.max(leftLevel, rightLevel);
+  };
+  
+  checkDepth();
+  return balance;
+};
