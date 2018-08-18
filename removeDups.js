@@ -44,6 +44,23 @@ const removeDups = (linkedList) => {
   return linkedList;
 };
 
+const deleteDuplicates = function(head) {
+  if (head === null) return head;
+  let prev = head;
+  let current = head.next;
+
+  while (current) {
+    if (prev.val === current.val) {
+      prev.next = current = current.next;
+    } else {
+      prev = current;
+      current = current.next;
+    }
+  }
+
+  return head;
+};
+
 const testLL = new LinkedList();
 testLL.addToTail(3);
 testLL.addToTail(1);
