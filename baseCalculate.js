@@ -1,6 +1,6 @@
 var recursive = function(s) {
   s = s.replace(/\s/g, ''); // O(n)
-  
+
   const parse = (neg, string) => {
     let calc = 0;
     let temp = '';
